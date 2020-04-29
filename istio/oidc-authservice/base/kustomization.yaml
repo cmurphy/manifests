@@ -12,6 +12,11 @@ namespace: istio-system
 configMapGenerator:
 - name: oidc-authservice-parameters
   env: params.env
+secretGenerator:
+- name: oidc-ca
+  files:
+    - ca.crt
+  type: generic
 generatorOptions:
   disableNameSuffixHash: true
 

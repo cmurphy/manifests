@@ -1,0 +1,35 @@
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: suse.caasp.psp.kubeflow.pns
+spec:
+  privileged: false
+  allowedCapabilities:
+  - SYS_PTRACE
+  seLinux:
+    rule: RunAsAny
+  supplementalGroups:
+    rule: RunAsAny
+  runAsUser:
+    rule: RunAsAny
+  fsGroup:
+    rule: RunAsAny
+  volumes:
+  - configMap
+  - secret
+  - emptyDir
+  - downwardAPI
+  - projected
+  - persistentVolumeClaim
+  - nfs
+  - rbd
+  - cephFS
+  - glusterfs
+  - fc
+  - iscsi
+  - cinder
+  - gcePersistentDisk
+  - awsElasticBlockStore
+  - azureDisk
+  - azureFile
+  - vsphereVolume

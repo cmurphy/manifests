@@ -74,3 +74,11 @@ rules:
   - jobs
   verbs:
   - '*'
+- apiGroups:
+  - policy
+  resources:
+  - podsecuritypolicies
+  verbs:
+  - use
+  resourceNames:
+  - suse.caasp.psp.kubeflow.pns

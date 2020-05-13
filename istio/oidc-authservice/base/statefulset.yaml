@@ -47,9 +47,13 @@ spec:
             value: $(application_secret)
           - name: STORE_PATH
             value: /var/lib/authservice/data.db
+          - name: CA_BUNDLE
+            value: /etc/authservice/certs/ca.crt
         volumeMounts:
           - name: data
             mountPath: /var/lib/authservice
+          - name: oidc-ca
+            mountPath: /etc/authservice/certs
         readinessProbe:
             httpGet:
               path: /
@@ -59,4 +63,8 @@ spec:
       volumes:
         - name: data
           persistentVolumeClaim:
-              claimName: authservice-pvc          
+              claimName: authservice-pvc
+        - name: oidc-ca
+          secret:
+            defaultMode: 420
+            secretName: oidc-ca

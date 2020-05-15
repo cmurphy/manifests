@@ -47,7 +47,6 @@ rules:
   - virtualservices
   verbs:
   - '*'
-
 ---
 
 apiVersion: rbac.authorization.k8s.io/v1
@@ -86,6 +85,14 @@ rules:
   - deletecollection
   - patch
   - update
+- apiGroups:
+  - policy
+  resources:
+  - podsecuritypolicies
+  verbs:
+  - use
+  resourceNames:
+  - notebook-controller-psp
 
 ---
 

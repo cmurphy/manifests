@@ -57,14 +57,6 @@ spec:
         path: istio/istio
     name: istio
   - kustomizeConfig:
-      parameters:
-      - name: namespace
-        value: istio-system
-      repoRef:
-        name: manifests
-        path: istio/add-anonymous-user-filter
-    name: add-anonymous-user-filter
-  - kustomizeConfig:
       repoRef:
         name: manifests
         path: application/application-crds
